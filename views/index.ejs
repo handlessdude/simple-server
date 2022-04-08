@@ -1,13 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= title %></title>
+    <%- include('./partials/head');%>
 </head>
 <body>
-<%=title%>
+    <%- include('./partials/navbar');%>
+<div id="app" class="container">
+    <h1>
+        <%=title%>
+    </h1>
+
+    <!--TODO: notebook search form
+    TODO: render notebooks filtered by the info from the form
+
+    это мне надо
+        1) брать инфу с формы
+        2) передавать ее в скрипт
+        3) рендерить то, что скрипт вернет
+    -->
+
+</div>
+    <%- include('./partials/jquery');%>
 </body>
 </html>
