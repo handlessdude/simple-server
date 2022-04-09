@@ -10,11 +10,11 @@ const readInterface = readline.createInterface({
     console: false
 })
 const laptops = []
-let re = / ,|, |\]| \[/gi
+let re = / , | ,|, |]| \[/gi
 
 readInterface.on('line', function(line) {
     if(line.includes('[')&&line.includes(']')) {
-        laptops.push(line.replace(re, match => ','))
+        laptops.push(line.replace(re,  ','))
     }
     if(line.includes('₽')&&!line.includes('/')){
         laptops[laptops.length-1]+=line+'\n'

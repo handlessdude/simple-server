@@ -1,8 +1,6 @@
 import express from 'express'
-//import path from 'path'
 import {requestTime, logger} from './middlewares.js'
-
-
+import {loadLaptops} from './db/laptopsModule.js'
 
 const PORT = process.env.PORT ?? 3000
 const app = express()
@@ -24,6 +22,13 @@ app.get('/about', (req, res) => {
                                         active: 'about'})
 })
 
-app.listen(PORT, () => {
+//вопросс: сохранится ли содержимое data[] при перезагрузке страницы? если нет, придется:
+// в апп.пост(форм): форму запроса сохранять в файл
+// в апп.гет считывать файл с ноутбуками
+// фильтерить и выводить
+app.listen(PORT, async () => {
     console.log(`Server has been started on port ${PORT}...`)
+    //тут сделать инит массива
+    const laptops = await loadLaptops()
+    console.log(laptops)
 })
