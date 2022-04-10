@@ -1,6 +1,89 @@
 <form action="/" method="post">
     <div class="form-control">
-        <input name="text" type="text" placeholder="Browse the catalogue...">
+        <input name="text" type="text" placeholder="Browse the catalogue..." class="mb15">
+        <table>
+            <tbody>
+            <tr>
+                <th scope="row">Price:</th>
+                <td><input name="price_to" type="number" placeholder="From" min="1" ></td>
+                <td><input name="price_from" type="number" placeholder="To" min="1" ></td>
+
+                <th scope="row"><label for="os">Preinstalled OS:</label></th>
+                <td><input name="os" type="checkbox" id="os" value="y"></td>
+            </tr>
+            <tr>
+                <th scope="row">Resolution:</th>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="Full HD" name="resolution" value="Full HD">
+                            </td>
+                            <th scope="row"><label for="Full HD">Full HD</label></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="4K" name="resolution" value="4K">
+                            </td>
+                            <th scope="row"><label for="4K">4K</label></th>
+                        </tr>
+                    </table>
+                </td>
+                <th scope="row">Screen type:</th>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="IPS" name="screen_type" value="IPS">
+                            </td>
+                            <th scope="row"><label for="IPS">IPS</label></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="TN+film" name="screen_type" value="TN+film">
+                            </td>
+                            <th scope="row"><label for="TN+film">TN+film</label></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="OLED" name="screen_type" value="OLED">
+                            </td>
+                            <th scope="row"><label for="OLED">OLED</label></th>
+                        </tr>
+                    </table>
+                </td>
+
+                <th scope="row">RAM:</th>
+                <td><input name="ram_to" type="number" placeholder="From" min="2"></td>
+                <td><input name="ram_from" type="number" placeholder="To" min="2"></td>
+
+                <th scope="row">Data drives:</th>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="SSD" name="data_drives" value="SSD">
+                            </td>
+                            <th scope="row"><label for="SSD">SSD</label></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="HDD" name="data_drives" value="HDD">
+                            </td>
+                            <th scope="row"><label for="HDD">HDD</label></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="eMMC" name="data_drives" value="eMMC">
+                            </td>
+                            <th scope="row"><label for="eMMC">eMMC</label></th>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
     </div>
     <button type="submit" class="btn primary">Search!</button>
 </form>

@@ -64,9 +64,13 @@ h2 {
     margin-bottom: 15px;
 }
 
-tr{
+.laptop-info tr{
     border-bottom: 1px solid #e1e2e6;
 }
+
+/*.form-control tr{
+    border-bottom: none;
+}*/
 .card.header{
     margin-top: -20px;
 }
@@ -168,17 +172,28 @@ tr{
 }
 .form-control input,
 .form-control select {
-    margin: 0;
+
     outline: none;
     border: 1px solid #ccc;
     display: block;
     width: 100%;
     color: #2c3e50;
-    padding: 0.5rem 1.5rem;
+    padding: 7px 10px;
     border-radius: 3px;
     font-size: 1rem;
 }
 
+input[type=text] {
+    background-image: url('searchicon.svg');
+    background-position: 9px 8px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+
+.price{
+    display: flex;
+    flex-direction: row;
+}
 .form-control small {
     color: #e53935;
 }
@@ -200,7 +215,10 @@ tr{
 .form-checkbox .checkbox input {
     margin-right: 1rem;
 }
-
+td input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}
 .form-control label {
     display: block;
     margin: 0 0 0.3rem 0.3rem;
@@ -239,31 +257,14 @@ tr{
     align-items: center;
 }
 
-table {
-    /*table-layout: fixed;*/
+.laptop-info table {
     width: 100%;
     border-collapse: collapse;
 }
 
-thead th:nth-child(1) {
-    width: 30%;
-}
-
-thead th:nth-child(2) {
-    width: 20%;
-}
-
-thead th:nth-child(3) {
-    width: 30%;
-}
-
-thead th:nth-child(4) {
-    width: 20%;
-}
-
 th, td {
     padding-bottom: 5px;
-    padding-right: 10px;
+    padding-right: 12px;
     vertical-align: top;
 }
 
