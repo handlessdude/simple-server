@@ -8,8 +8,20 @@
                 <td><input name="price_from" type="number" placeholder="From" min="1" ></td>
                 <td><input name="price_to" type="number" placeholder="To" min="1" ></td>
 
-                <th scope="row"><label for="os">Preinstalled OS:</label></th>
-                <td><input name="os" type="checkbox" id="os" value="y"></td>
+                <th scope="row">Preinstalled OS:</th>
+                <td>
+                    <table>
+                        <tr>
+                            <td><input type="checkbox" id="os_y" name="os" value="preinstalled"></td>
+                            <th scope="row"><label for="os_y">Yes</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="os_n" name="os" value="no OS"></td>
+                            <th scope="row"><label for="os_n">No</label></th>
+                        </tr>
+                    </table>
+                </td>
+
             </tr>
             <tr>
                 <th scope="row">Resolution:</th>

@@ -28,7 +28,7 @@ function applyFilters(laptops, params) {
                                && (params.price_from && params.price_to ? filterByPrice(item, params.price_from, params.price_to) : true)
                                && (params.ram_from && params.ram_to ? filterByRAM(item, params.ram_from, params.ram_to) : true)
             //if no param - we dont spend resources on a func call
-                               && (params.hasOwnProperty('os')? !(item.os === 'без ОС') : true)
+                               && (params.hasOwnProperty('os')? filterByOS(item, params.os) : true)
                                && (params.hasOwnProperty('resolution')?  checkArrProps(item, 'resolution',  params.resolution) : true)
                                && (params.hasOwnProperty('screen_type')? checkArrProps(item, 'screen_type', params.screen_type) : true)
                                && (params.hasOwnProperty('data_drives')? checkArrProps(item, 'data_drives', params.data_drives) : true)
@@ -50,6 +50,16 @@ function filterByPrice(item, lower, upper) {
 function filterByRAM(item, lower, upper) {
     const ram = Number(item.ram.split(' ')[1])
     return Number(lower)<=ram && ram<= Number(upper)
+}
+
+function filterByOS(item, os) {
+    const newArr = (Array.isArray(os)? os : [os])
+    if(item.os.trim() === "без ОС")  {
+        return newArr.includes("no OS")
+    } else {
+        return newArr.includes("preinstalled")
+    }
+
 }
 
 function checkArrProps(item, key, arr){
