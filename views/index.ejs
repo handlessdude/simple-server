@@ -1,91 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <%- include('./partials/head');%>
+    <%- include('./partials/auxiliary/head');%>
 </head>
 <body>
-    <%- include('./partials/navbar');%>
+    <%- include('./partials/components/navbar');%>
 
     <div id="app" class="container with-nav">
         <div class="card header">
-            <h3 style="padding:10px; margin: 0">
-                <%=title%>
-            </h3>
-
-            <form action="/" method="post">
-                <div class="form-control">
-                    <input name="text" type="text" placeholder="Browse the catalogue...">
-                </div>
-
-                <button type="submit" class="btn primary">Search!</button>
-            </form>
+            <%- include('./partials/components/title');%>
+            <%- include('./partials/components/searchForm');%>
         </div>
 
-
-        <!--<hr style="margin-top: 20px"/>-->
-
-        <% if(laptops.length === 0){ %>
-            <p>No items yet...</p>
-        <% } %>
-
-        <ul style="padding: 0">
-            <% for (let i = 0; i < laptops.length; i++) {%>
-               <li class="card" style="margin-top: 20px;
-                                        display: flex;
-                                        flex-direction: row">
-                   <picture style="display: inline-block; ">
-                       <source srcset="/img/<%=i+1%>.webp" type="image/webp">
-                       <img src="/img/<%=i+1%>.webp" alt="laptopPic" />
-                   </picture>
-                   <div class="laptop-info" style="display: flex;
-                                                    flex-direction: column">
-                       <h5 class="title"><%= laptops[i].name %></h5>
-                       <h5 class="mb15"><%= laptops[i].price %></h5>
-
-                       <table>
-                           <tbody>
-                           <tr>
-                               <th scope="row">Resolution:</th>
-                               <td><%= laptops[i].resolution %></td>
-                               <th scope="row">RAM:</th>
-                               <td><%= laptops[i].ram %></td>
-                           </tr>
-                           <tr>
-                               <th scope="row">Screen type:</th>
-                               <td><%= laptops[i].screen_type %></td>
-                               <th scope="row">Data drives:</th>
-                               <td><%= laptops[i].data_drives %></td>
-                           </tr>
-                           <tr>
-                               <th scope="row">CPU:</th>
-                               <td><%= laptops[i].cpu %></td>
-                               <th scope="row">GPU:</th>
-                               <td><%= laptops[i].gpu %></td>
-                           </tr>
-                           <tr>
-                               <th scope="row">Cores:</th>
-                               <td><%= laptops[i].cores %></td>
-                               <th scope="row">Operating system:</th>
-                               <td><%= laptops[i].os %></td>
-                           </tr>
-                           </tbody>
-                       </table>
-                   </div>
-
-               </li>
-            <% } %>
-        </ul>
+        <%- include('./partials/laptops/laptopList');%>
     </div>
 
-    <!--
-    TODO: render notebooks filtered by the info from the form
-
-    это мне надо
-        1) брать инфу с формы
-        2) передавать ее в скрипт
-        3) рендерить то, что скрипт вернет
-    -->
-
-    <%- include('./partials/jquery');%>
+    <%- include('./partials/auxiliary/jquery');%>
 </body>
 </html>

@@ -1,0 +1,9 @@
+<% if(laptops.length === 0){ %>
+    <p>No items yet...</p>
+<% } %>
+
+<ul>
+    <% for (let i = 0; i < laptops.length; i++) {%>
+        <%- include('./laptopCard', {i: i});%>
+    <% } %>
+</ul>

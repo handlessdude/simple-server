@@ -1,0 +1,41 @@
+<li class="card prod-card">
+    <picture style="display: inline-block; ">
+        <source srcset="/img/<%=i+1%>.webp" type="image/webp">
+        <img src="/img/<%=i+1%>.webp" alt="laptopPic" />
+    </picture>
+    <div class="laptop-info">
+        <h5 class="title"><%= laptops[i].name %></h5>
+
+
+        <table>
+            <tbody>
+            <tr>
+                <th scope="row">Resolution:</th>
+                <td><%= laptops[i].resolution %></td>
+                <th scope="row">RAM:</th>
+                <td><%= laptops[i].ram %></td>
+            </tr>
+            <tr>
+                <th scope="row">Screen type:</th>
+                <td><%= laptops[i].screen_type %></td>
+                <th scope="row">Data drives:</th>
+                <td><%= laptops[i].data_drives %></td>
+            </tr>
+            <tr>
+                <th scope="row">CPU:</th>
+                <td><%= laptops[i].cpu %></td>
+                <th scope="row">GPU:</th>
+                <td><%= laptops[i].gpu %></td>
+            </tr>
+            <tr>
+                <th scope="row">Cores:</th>
+                <td><%= laptops[i].cores %></td>
+                <th scope="row">Operating system:</th>
+                <td><%= laptops[i].os %></td>
+            </tr>
+            </tbody>
+        </table>
+        <h5 class="mt15"><%= laptops[i].price %></h5>
+    </div>
+
+</li>

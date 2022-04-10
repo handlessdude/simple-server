@@ -1,20 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <%- include('./partials/head');%>
+    <%- include('./partials/auxiliary/head');%>
 </head>
 <body>
-<%- include('./partials/navbar');%>
+<%- include('./partials/components/navbar');%>
 <div id="app" class="container with-nav">
     <div class="card header">
-        <h3 style="padding:10px; margin: 0">
-            <%=title%>
-        </h3>
-
+        <%- include('./partials/components/title');%>
     </div>
-
+    <h1>sample text </h1>
 </div>
 
-<%- include('./partials/jquery');%>
+<%- include('./partials/auxiliary/jquery');%>
 </body>
 </html>
