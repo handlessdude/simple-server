@@ -168,7 +168,7 @@ h2 {
     padding: 10px 10px 0 10px;
 }
 .form-control + .btn.primary {
-    margin: 10px 10px 0 10px;
+    margin: 0 10px 0 10px;
 }
 .form-control input,
 .form-control select {
