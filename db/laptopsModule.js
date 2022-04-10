@@ -20,5 +20,10 @@ async function loadLaptops() {
                             .map(str => str.split(','))
     return lapsValues.map(values => Object.fromEntries(keys.map((k, i) => [k, values[i]])))
 }
-
-export { loadLaptops }
+function filterBySearchQuery(laptops, searchQuery) {
+    searchQuery = searchQuery.toLowerCase()
+    return laptops.filter(item => Object.values(item)
+                                        .some(val => val.toLowerCase()
+                                                        .includes(searchQuery)))
+}
+export { loadLaptops, filterBySearchQuery }

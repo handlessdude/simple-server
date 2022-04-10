@@ -1,9 +1,13 @@
 import express from 'express'
 import {requestTime, logger} from './middlewares.js'
-import {loadLaptops} from './db/laptopsModule.js'
+import { loadLaptops, filterBySearchQuery } from './db/laptopsModule.js'
 
 const PORT = process.env.PORT ?? 3000
 const app = express()
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 app.locals.laptops = []
@@ -18,19 +22,22 @@ app.get('/', (req, res) => {
                                         active: 'index',
                                         laptops: app.locals.laptops})
 })
+
+app.post('/', async (req, res) => {
+    app.locals.laptops = await loadLaptops()
+    const searchQuery = req.body.text
+    app.locals.laptops = filterBySearchQuery(app.locals.laptops, searchQuery)
+    res.redirect('/')
+})
+
 //запрос информационной страницы
 app.get('/about', (req, res) => {
     res.render('about', {   title: 'About',
                                         active: 'about'})
 })
 
-//вопросс: сохранится ли содержимое data[] при перезагрузке страницы? если нет, придется:
-// в апп.пост(форм): форму запроса сохранять в файл
-// в апп.гет считывать файл с ноутбуками
-// фильтерить и выводить
 app.listen(PORT, async () => {
     console.log(`Server has been started on port ${PORT}...`)
-    //тут сделать инит массива
     app.locals.laptops = await loadLaptops()
-    console.log(app.locals.laptops)
+    /*console.log(app.locals.laptops)*/
 })
