@@ -12,7 +12,7 @@ export function logger(req, res, next) {
         +colors.bgYellow.black(`Request path: ${req.path}\n`)
         +colors.bgCyan.black(`Req.time: ${humanTime}\n`)
         +'REQUEST BODY = '
-        +  JSON.stringify(req.body)
+        +JSON.stringify(req.body)
         +'\n')
     next()
 }

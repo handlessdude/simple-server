@@ -1,6 +1,6 @@
 import express from 'express'
 import {requestTime, logger} from './middlewares.js'
-import { loadLaptops, filterBySearchQuery } from './db/laptopsModule.js'
+import { loadLaptops, applyFilters } from './db/laptopsModule.js'
 
 const PORT = process.env.PORT ?? 3000
 const app = express()
@@ -11,8 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 app.locals.laptops = []
-//const __dirname = path.resolve()
-/*app.use(express.static(path.resolve(__dirname, 'static')))*/
 app.use(requestTime)
 app.use(logger)
 
@@ -25,8 +23,7 @@ app.get('/', (req, res) => {
 
 app.post('/', async (req, res) => {
     app.locals.laptops = await loadLaptops()
-    const searchQuery = req.body.text
-    app.locals.laptops = filterBySearchQuery(app.locals.laptops, searchQuery)
+    app.locals.laptops = applyFilters(app.locals.laptops, req.body)
     res.redirect('/')
 })
 
